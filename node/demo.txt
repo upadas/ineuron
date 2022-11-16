@@ -1,0 +1,4 @@
+Hello!
+This is a node js example text file
+DEMO file
+<<<EOD
