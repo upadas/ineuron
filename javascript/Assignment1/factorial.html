@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <!-- Javascript Assignment - 3. Write a program to find the factorial of a number. -->
+    <head>
+    <meta charset="utf-8">
+    <title>Find the factorial of a number</title>
+  </head>
+  <body>
+    <div id = 'fct'> 
+        <input type="text" id="num" name="findFact" placeholder="Enter a Number">&nbsp;
+        <button onclick="findFactorial(document.getElementById('num').value)">Find Factorial!</button><br><br><br>
+    </div>
+
+    <script lang="javascript">
+
+        function findFactorial(n) {
+                   
+            var para;
+            // if  (document.querySelector("p")) {
+            //     para = document.querySelector("p");
+            //     para.remove();  
+            // }
+
+
+            // create a p element to be appended to the body of the html document   
+            para= document.createElement("p");
+            // para.id = "resultPara";
+            var factorial=1;
+            
+            if (!/^\d+$/.test(n)){
+                // if the entered value is not a digit, display error message
+                console.log("Err.. Please enter a valid numbers");
+                alert("Err.. Please enter a valid numbers");
+                return;
+            }
+            else if (n < 0) {
+                factorial = -1;
+            }
+            else if (n==0) {
+                // Factorial of 0 is 1   
+                factorial = 1;
+            }
+            else {
+                for(var i = n; i >= 1; i--){
+                    factorial = factorial * i;
+                }
+            }
+
+            var element=document.getElementById("fct");
+            var node = document.createTextNode(n + "!" + " = " + factorial);
+            // para.textContent = n + ' ! = ' + factorial;
+            para.appendChild(node);
+            // Add the child node to newly created para
+            element.appendChild(para);
+
+        }
+    </script>
+</body>
+
+</html>

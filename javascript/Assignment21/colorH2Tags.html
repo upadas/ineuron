@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HEADING 1</h1>
+    <h2 id="h21">HEADING 2 - 1</h2>
+    <h2 id="h22">HEADING 2 - 2</h2>
+    <h2 id="h23">HEADING 2 - 3</h2>
+    <h2 id="h23">HEADING 2 - 4</h2>
+    
+    <script>
+        // Exercise 7
+        const collection = document.getElementsByTagName("h2");
+        for (let i = 0; i < collection.length; i++) {
+            collection[i].style.color = "purple";
+        }
+
+        // Exercise 8
+        let heading4 = document.createElement('h4');
+        let node = document.createTextNode("HEADING 4");
+        heading4.appendChild(node);
+        let element = document.getElementsByTagName('body')[0];
+        element.appendChild(heading4);
+
+        // Exercise 10
+        let h2tags = document.getElementsByTagName('h2');
+        document.write("Number of h2 tags :" + h2tags.length); 
+
+        // Exercise 9
+        let para = document.createElement("p");
+        let pnode = document.createTextNode("Demo para will be removed");
+        para.appendChild(pnode);
+        element.appendChild(para);
+
+        setTimeout(para.removeChild(pnode), 5000);
+        
+    </script>
+</body>
+</html>

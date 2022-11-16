@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<html>
+    <head>
+        <title>1. Select an h2 tag with id of text and change its inner text to “Hello World”.</title>
+    </head>
+    <body>
+    
+        <h2 id="rt">Some Random Text</h2>
+
+        <h4 id="sum">Simple Calculator</h4>
+        <input type="text" name="add1" id="a1">        
+        <input type="text" name="add2" id="a2">
+        <button onclick="sum(getElementById('a1').value, getElementById('a2').value)" >ADD</button>
+
+        <div id="d1">
+        </div>
+
+        <script>
+            //1. Replace by Hello World 
+            document.getElementById("rt").innerHTML = "Hello World"
+            //2. Set Styling attribs
+            document.getElementById("rt").style.color ="red"
+            document.getElementById("rt").style.fontWeight ="bold"
+            document.getElementById("rt").style.textTransform ="uppercase"
+            //3. Simple Calc
+            function sum(a,b) {
+                // document.write("a=" + a);
+                // document.write("b=" + b);
+                let s=parseInt(a)+parseInt(b);
+                let para =  document.createElement("p");
+                let node =  document.createTextNode(s);
+                para.appendChild(node);
+                let el = document.getElementById("d1");
+                el.appendChild(para);
+            }
+        </script>
+        
+    </body> 
+</html>

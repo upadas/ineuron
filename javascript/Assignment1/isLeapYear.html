@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <!-- Javascript Assignment - 1. Write a program to find whether a given year is a leap year or not. -->
+    <head>
+    <meta charset="utf-8">
+    <title>Check if an Year is a Leap Year</title>
+  </head>
+  <body>
+        <div id = 'leapYr'> 
+            <input type="text" id="yr" name="toConvert" placeholder="Enter Year">&nbsp;
+            <button onclick="isLeapYear(document.getElementById('yr').value,)">Check</button><br><br><br>
+        </div> 
+        <script lang="javascript">
+            function isLeapYear(yr) {
+                   
+                // create a p element to be appended to the body of the html document   
+
+                var para, node;
+                // if  (document.querySelector("p")) {
+                //     para = document.querySelector("p");
+                //     para.remove();  
+                // }
+                
+                para= document.createElement("p");
+                para.id = "resultPara";
+
+                if (!/[0-9]/.test(yr)){
+                    // if the entered value is not a digit return
+                    node = document.createTextNode(yr + " oops!" + " please enter a valid year");
+                }
+                //Leap year every year divisible by four except for years which are both divisible by 100 and not divisible by 400. 
+                else if (yr%4===0 & !( yr%100===0 & yr%400!==0)) {
+                    // Add a child node to the para to show the result message   
+                    node = document.createTextNode(yr + " is a Leap Year.");
+                    // document.getElementById("leapYr").innerHTML = yr + " is a Leap Year.";
+                }
+                else {
+                    // Add a child node to the para to show the result message   
+                    node = document.createTextNode(yr + " is NOT a Leap Year.");
+                }
+
+                para.appendChild(node);
+
+                // Add the child para to the para    
+                var element=document.getElementById("leapYr");
+                element.appendChild(para);
+            }
+        </script>
+    </body>
+</html>

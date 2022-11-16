@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <!-- Javascript Assignment - 2. Write a JavaScript program to convert temperatures to and from Celsius -->
+  <head>
+    <meta charset="utf-8">
+    <title>convert temperature between Fahrenheit and Celcius</title>
+    <!-- script src="./f2c.js"></script -->
+  </head>
+  <body>
+    <p id = 'convert'> 
+        <label for="cel">Enter the value to be converted   </label>&nbsp;
+        <input type="text" id="toCnvrt" name="toConvert">&nbsp;
+        <select id="scl" name="scale">
+            <option value="Fahrenheit">Convert to Fahrenheit</option>
+            <option value="Celcius">Convert to Celcius</option>&nbsp;
+          </select>
+          <button onclick="var convrtdVal=cnvrtTempScale(document.getElementById('toCnvrt').value,
+                                 document.getElementById('scl').value
+                                 )">Convert</button><br><br><br>
+
+    </p> 
+    <script lang="javascript">
+        function cnvrtTempScale (fromVal,toScale) {
+            var fromScale;
+            var toVal;
+            
+            if (toScale==="Celcius"){
+                toVal = (fromVal-32)*5/9;
+                fromScale="Farenheit";
+            }
+            else {
+                toVal = (9*fromVal/5)+32;
+                fromScale="Celcius";
+            }
+
+            var resultMsg= fromVal + " Degrees " + fromScale +" is " + toVal + " Degrees " + toScale;
+
+            // create a p element to be appended to the body of the html document   
+            var para= document.createElement("p");
+            para.id = "resultPara";
+           
+            // Add a child node to the para to show the result message   
+            var node = document.createTextNode(resultMsg);
+            para.appendChild(node);
+
+            // Add the child para to the para    
+            var element=document.getElementById("convert");
+            element.appendChild(para);
+           
+            console.log(resultMsg);
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>
