@@ -11,39 +11,20 @@ Output:
     Array without duplicate elements = [ 1, 2, 3, 4, 5 ]
 */
 
-console.log ("a) Store all duplicate elements in a separate array");
+console.log("a) Store all duplicate elements in a separate array");
 
-console.log ("****** Method 1 : Using filter ********");
-let arr = [ 1, 2, 3, 2, 3, 4, 5 , 4 ,5, 6];
-var dupArray = arr.filter((element, index) =>
-           arr.indexOf(element) !== index);
+let arr = [1, 2, 3, 2, 3, 4, 5];
+var dupArray = arr.filter((element, index) => arr.indexOf(element) !== index);
 console.log(dupArray);
 
-
-console.log ("****** Method 2 : Using Map & has ********");
-var dupMap = new Map();
-for (i = 0 ; i < arr.length ; i ++){
-    if (dupMap.has(arr[i])){
-        dupMap.set(arr[i], 'dup'); 
-    }
-    else {
-        dupMap.set(arr[i], 'uniq')
-    }
+console.log("b) Remove the duplicate elements from the original array");
+var uniqArrSet = new Set();
+for (i = 0; i < arr.length; i++) {
+  uniqArrSet.add(arr[i]);
 }
 
-// console.log(dupMap);
-var dupArray1=[];
-for (const [key,value] of dupMap.entries()) {
-    if (dupMap.get(key) == 'dup') {
-        dupArray1.push(key);
-    }
+var uniqArr = [];
+for (const [key, value] of uniqArrSet.entries()) {
+  uniqArr.push(key);
 }
-console.log(dupArray1);
-
-console.log ("b) Remove the duplicate elements from the original array");
-
-var uniqElArray =[];
-for (const [key,value] of dupMap.entries()) {
-    uniqElArray.push(key);
-}
-console.log(uniqElArray);
+console.log(uniqArr);
