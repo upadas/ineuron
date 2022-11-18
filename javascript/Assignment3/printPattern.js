@@ -11,16 +11,15 @@
 printNumPattern();
 
 function printNumPattern() {
-    let newlineCtr = 1;
-    let printedCtr = 1;
-    for (i=1 ; i <= 10 ; i++){
-        process.stdout.write(i.toString() + " ");
-        if ( printedCtr==newlineCtr){
-            console.log("\n");
-            printedCtr=0;
-            newlineCtr++;
-        }
-        printedCtr++;
+  let newlineCtr = 1;
+  let printedCtr = 1;
+  for (i = 1; i <= 10; i++) {
+    process.stdout.write(i.toString() + " ");
+    if (printedCtr == newlineCtr) {
+      console.log("\n");
+      printedCtr = 0;
+      newlineCtr++;
     }
-
+    printedCtr++;
+  }
 }

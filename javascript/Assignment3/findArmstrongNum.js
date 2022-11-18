@@ -13,50 +13,51 @@
     1+125+27=153
 
 */
-var scriptArgs = require('minimist')(process.argv.slice(2));
-let num=scriptArgs._[0];
+var scriptArgs = require("minimist")(process.argv.slice(2));
+let num = scriptArgs._[0];
 
-if (!/^\d+$/.test(num)){
-    // if the entered values are not numbers, display error message
-    console.log("Err.. Please enter a valid number range");
-    process.exit(1);
+if (!/^\d+$/.test(num)) {
+  // if the entered values are not numbers, display error message
+  console.log("Err.. Please enter a valid number range");
+  process.exit(1);
 }
 
-var isArmstrongNum = checkIfArmstrongNum(num) ;
+var isArmstrongNum = checkIfArmstrongNum(num);
 
 if (isArmstrongNum) {
-    console.log(num  + " is an Armstrong Number");
-}
-else {
-    console.log(num  + " is NOT an Armstrong Number");
+  console.log(num + " is an Armstrong Number");
+} else {
+  console.log(num + " is NOT an Armstrong Number");
 }
 
-function checkIfArmstrongNum (n) {
-    isArmstrongNum = false;s
-    var digitArr = numToDigitArr(n); 
-    if ( n === sumOfCubesOfDigits(digitArr)) {
-        isArmstrongNum = true;
-    }
-    return isArmstrongNum;
+function checkIfArmstrongNum(n) {
+  isArmstrongNum = false;
+  var digitArr = numToDigitArr(n);
+  if (n === sumOfCubesOfDigits(digitArr)) {
+    isArmstrongNum = true;
+  }
+  return isArmstrongNum;
 }
 
 //Convert a number to Array of individual digits, returns an array
-function numToDigitArr (num){
-    var myArr = String(num).split("").map((num)=>{
-        return Number(num);
-      })   
-      return myArr;
+function numToDigitArr(num) {
+  var myArr = String(num)
+    .split("")
+    .map((num) => {
+      return Number(num);
+    });
+  return myArr;
 }
 
 //Take an array as input, calculate & return the sum of its individual digits
-function sumOfCubesOfDigits(arr){
-    if (typeof arr !== "object" ) {
-        console.log ("Expecting an Array, received " + typeof arr);
-        return 0;
-    }
-    sum=0;
-    for (i = 0; i < arr.length; i++){
-        sum+=Math.pow(arr[i],3)
-    }
-    return sum;
+function sumOfCubesOfDigits(arr) {
+  if (typeof arr !== "object") {
+    console.log("Expecting an Array, received " + typeof arr);
+    return 0;
+  }
+  sum = 0;
+  for (i = 0; i < arr.length; i++) {
+    sum += Math.pow(arr[i], 3);
+  }
+  return sum;
 }
