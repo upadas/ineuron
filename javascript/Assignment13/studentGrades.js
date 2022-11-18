@@ -35,53 +35,51 @@ Output:
 */
 
 let students = [
-    { name: "John", marks: "92" },
-    { name: "Oliver", marks: "85" },
-    { name: "Michael", marks: "79" },
-    { name: "Dwight", marks: "95"},
-    { name: "Oscar", marks: "64" },
-    { name: "Kevin", marks: "48" },
+  { name: "John", marks: "92" },
+  { name: "Oliver", marks: "85" },
+  { name: "Michael", marks: "79" },
+  { name: "Dwight", marks: "95" },
+  { name: "Oscar", marks: "64" },
+  { name: "Kevin", marks: "48" },
 ];
 
 const studentGradesMap = new Map();
 var grade;
 
 for (const [key, value] of students.entries()) {
-    switch (true) {
-        case (value.marks >= 90 && value.marks <= 100):
-            grade ="A";
-            break;
-        case value.marks >= 80 && value.marks < 90:
-            grade ="B";
-            break;
-        case value.marks >= 70 && value.marks < 80:
-            grade ="C";
-            break;
-        case value.marks >= 60 && value.marks <70:
-            grade ="D";
-            break;
-        case value.marks >= 50 && value.marks <60:
-            grade ="E";
-            break;
-        default:
-            grade ="F";
-            break;
-    }
-    studentGradesMap.set(value , grade);
+  switch (true) {
+    case value.marks >= 90 && value.marks <= 100:
+      grade = "A";
+      break;
+    case value.marks >= 80 && value.marks < 90:
+      grade = "B";
+      break;
+    case value.marks >= 70 && value.marks < 80:
+      grade = "C";
+      break;
+    case value.marks >= 60 && value.marks < 70:
+      grade = "D";
+      break;
+    case value.marks >= 50 && value.marks < 60:
+      grade = "E";
+      break;
+    default:
+      grade = "F";
+      break;
+  }
+  studentGradesMap.set(value, grade);
 }
 
 // console.log(studentGradesMap);
 
 const studentGradeGrouping = {};
 for (const [key, value] of studentGradesMap.entries()) {
-    if (!studentGradeGrouping[value]) {
-        studentGradeGrouping[value]=[];
-        studentGradeGrouping[value].push(key);
-    }
-    else {
-        studentGradeGrouping[value].push(key);
-    }
-
+  if (!studentGradeGrouping[value]) {
+    studentGradeGrouping[value] = [];
+    studentGradeGrouping[value].push(key);
+  } else {
+    studentGradeGrouping[value].push(key);
+  }
 }
 
 console.log(studentGradeGrouping);

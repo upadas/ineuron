@@ -12,8 +12,10 @@ Output:
     3
 */
 
-const arr = [ 1, 2, 3, 4, 5 ];
-const sum = arr.reduce( (x,y) => x+y, 0) ;
-console.log(sum);
-const avg = arr.reduce( (x,y) => x+y, 0)/arr.length;
-console.log(avg);
+const arr = [1, 2, 3, 4, 5];
+const sum = arr.reduce((x, y) => x + y, 0);
+console.log("Sum " + sum);
+const avg = arr.reduce((x, y) => x + y, 0) / arr.length;
+console.log("average " + avg);
+const avg1 = arr.reduce((x, y) => x + y / arr.length, 0);
+console.log("average " + avg1);
