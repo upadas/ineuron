@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
-contract MultiSig {
+contract MultiSigWallet {
 
     event Deposit (address indexed sender,uint amount , uint balance);
     event SubmitTransaction(
@@ -96,7 +96,7 @@ contract MultiSig {
     }
 
     // smart contract holds the ETH as escrow before sending it 
-    function DepositETH() public payable{
+    function depositETH() public payable{
         (bool success,)=address(this).call{value:msg.value}("");
         require(success,"invalid");
         emit Deposit(msg.sender,msg.value,address(this).balance);
@@ -149,5 +149,9 @@ contract MultiSig {
                 transaction.numconfirmations
         );
 
+    }
+
+    function getBalance() public view returns(uint){
+        return address(this).balance;
     }
 }
