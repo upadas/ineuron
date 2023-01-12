@@ -1,0 +1,23 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "description": "iNeuron Projects ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/upadas/ineuron.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upadas/ineuron/issues"
+  },
+  "homepage": "https://github.com/upadas/ineuron#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.12.4"
+  }
+}
