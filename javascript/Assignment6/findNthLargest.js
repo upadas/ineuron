@@ -8,13 +8,13 @@ which is 8.
 */
 
 function findNthLargest(arr, n) {
-    var sortedArr = [];
-    sortedArr = arr.sort(function(a, b) {return b - a});
-    console.log(sortedArr);
-    nthLargest = sortedArr.filter((el, index) => index === n-1); 
-    console.log(n + " largest number is ", nthLargest); 
+  var sortedArr = [];
+  sortedArr = arr.sort((a, b) => b - a);
+  console.log(sortedArr);
+  const nthLargest = sortedArr.filter((el, index) => index === n - 1);
+  console.log(n + " largest number is ", nthLargest);
 }
 
-let arr = [3,45,6,7,23,5,7,8]; 
+let arr = [3, 45, 6, 7, 23, 5, 7, 8];
 let n = 4;
 findNthLargest(arr, n);

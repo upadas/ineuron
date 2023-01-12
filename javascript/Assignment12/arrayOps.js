@@ -18,9 +18,9 @@ Output:
 /*** dictionary.has(inputted)? *****/
 
 // using map method on array to calculate squares of the elements
-// for now define an array here, 
+// for now define an array here,
 // if seeking array as user input use prompt to read user input
-var arr = [ 1, 2, 3, 4, 5 ];
-console.log ("Original Array =" + arr);
-const squares = arr.map ( i => Math.pow(i,2) );
-console.log ("Squared Array Elements= " + squares);
+var arr = [1, 2, 3, 4, 5];
+console.log("Original Array =" + arr);
+const squares = arr.map((i) => Math.pow(i, 2));
+console.log("Squared Array Elements= " + squares);
