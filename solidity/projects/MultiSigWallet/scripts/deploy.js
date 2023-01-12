@@ -8,21 +8,18 @@ const { ethers } = require("hardhat");
 const hre = require("hardhat");
 
 async function main() {
-  let owners = [];
-  let numberOfConfirmations = 1;
-  const MultiSigWalletContract = await ethers.getContractFactory(
-    "MultiSigWallet"
+  const numberOfConfirmationsRequired = 1;
+  const contract = await ethers.getContractFactory("MultiSigWallet");
+  accounts = await ethers.getSigners();
+  // owners = [accounts[0].address, accounts[1].address];
+  multiSigContract = await contract.deploy(
+    [accounts[0].address, accounts[1].address],
+    numberOfConfirmationsRequired
   );
-  const accounts = await ethers.getSigners();
-  owners = [(accounts[0], accounts[0])];
-  const contract = await MultiSigWalletContract.deploy(
-    owners,
-    numberOfConfirmations
-  );
-  await contract.deployed();
+  await multiSigContract.deployed();
 
   console.log(
-    `MultiSigWallet contract deployed to ${MultiSigWalletContract.address}`
+    `MultiSigWallet contract deployed to ${multiSigContract.address}`
   );
 }
 
