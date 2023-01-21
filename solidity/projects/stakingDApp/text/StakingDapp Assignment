@@ -1,0 +1,5 @@
+For the full stack staking Dapp that we have created in the Live class, you need to add the following functionalities to the existing Dapp.
+
+1) Create the user interface in the client application to claim the Reward Tokens as per the smart contract
+2) Create the user interface to withdraw tokens and update the balance of user's Mumbai testnet account.
+3) If possible, try to show the reward tokens earned by a particular account in real time on the client side application.
