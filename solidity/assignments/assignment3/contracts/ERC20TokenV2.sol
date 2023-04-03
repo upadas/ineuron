@@ -2,8 +2,10 @@
 pragma solidity ^0.8.6;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract MyToken is ERC20{
+
+contract ERC20TokenV2 is ERC20{
 
     address public owner;
     uint public price;
@@ -11,12 +13,12 @@ contract MyToken is ERC20{
     event Burn(address _account, uint _amount);
     event Allowance(address _account, uint _amount);
 
-    constructor(uint _price) ERC20("My Token", "TKN") {
-        _mint(msg.sender, 1000000*(10**uint(decimals()))); //mint new tokens in Wei
+    constructor(uint _totalSupply, uint _price) ERC20("My Token", "TKN")  {
+        _mint(msg.sender, _totalSupply*(10**uint(decimals()))); //mint new tokens in Wei
         owner = msg.sender;
         price = _price;
     }
-
+    
     function updatePrice(uint _newPrice) public {
         require (price != _newPrice, "Price same as old price");
         price = _newPrice;
@@ -49,7 +51,7 @@ contract MyToken is ERC20{
         require(msg.sender.balance >= msg.value && msg.value >= 0, "Insufficient Balance in the Contract");
         (bool success, ) = address(this).call{value: msg.value }("");
         require(success,"Unsucessful buy attempt");
-        uint _amount = msg.value * 1000;
+        uint _amount = msg.value * price;
          _transfer(owner, msg.sender, _amount);
         return true;
     }

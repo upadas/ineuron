@@ -13,6 +13,9 @@ module.exports = {
     },
   },
   networks: {
+    hardhat: {
+      chainId: 1337,
+    },
     sepolia: {
       url: process.env.ALCHEMY_SEPOLIA_URL,
       accounts: [process.env.SEPOLIA_PRIVATE_KEY],

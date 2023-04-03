@@ -3,7 +3,7 @@ pragma solidity ^0.8.6;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract MyToken is ERC20{
+contract ERC20TokenV3 is ERC20{
 
     address public owner;
     uint public price;
@@ -22,8 +22,8 @@ contract MyToken is ERC20{
         locked = true;
         _;
     }
-    constructor(uint _price) ERC20("My Token", "TKN") {
-        _mint(msg.sender, 1000000*(10**uint(decimals()))); //mint new tokens in Wei
+    constructor(uint _totalSupply, uint _price) ERC20("My Token", "TKN")  {
+        _mint(msg.sender, _totalSupply*(10**uint(decimals()))); //mint new tokens in Wei
         owner = msg.sender;
         price = _price;
     }
@@ -74,7 +74,7 @@ contract MyToken is ERC20{
         require(success,"Payment unsucessful");
         return true;
     }
-    function withdraw(uint _amount) external payable onlyOwner returns(bool){
+    function withdraw(uint _amount) external payable onlyOwner nonReentrant returns(bool){
         require (_amount <= address(this).balance, "Insufficient Balance");
         (bool success, ) = owner.call{value: _amount }("");
         require(success,"Unsucessful withdrawl of funds");
